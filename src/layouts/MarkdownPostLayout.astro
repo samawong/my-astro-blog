@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+const { frontmatter, class:markdownstyle } = Astro.props;
+---
+<Layout title={frontmatter.title}>
+	<main class="container flex md:flex-row flex-col">
+		<div class="flex md:flex-col flex-row md:items-center md:w-1/2 md:pt-48 md:ml-24 pt-6 space-y-6 mx-6 space-x-6">
+			<div class="hidden md:avatar " >
+				<div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+				  <a href="/">
+					<img src="/avatar.svg" />
+				  </a>
+				</div>
+			  </div>
+			  <div class="text-bold text-2xl md:text-base">
+				<h1>Samawong</h1>
+			  </div>
+			  <div class=" flex flex-row space-x-6  block ">
+					<a href="https://twitter.com/samafed">
+						<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-.139 9.237c.209 4.617-3.234 9.765-9.33 9.765-1.854 0-3.579-.543-5.032-1.475 1.742.205 3.48-.278 4.86-1.359-1.437-.027-2.649-.976-3.066-2.28.515.098 1.021.069 1.482-.056-1.579-.317-2.668-1.739-2.633-3.26.442.246.949.394 1.486.411-1.461-.977-1.875-2.907-1.016-4.383 1.619 1.986 4.038 3.293 6.766 3.43-.479-2.053 1.08-4.03 3.199-4.03.943 0 1.797.398 2.395 1.037.748-.147 1.451-.42 2.086-.796-.246.767-.766 1.41-1.443 1.816.664-.08 1.297-.256 1.885-.517-.439.656-.996 1.234-1.639 1.697z"/></svg>
+					</a>
+					<a href="#my-modal">
+						<svg width="36" height="36" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M19 24h-14c-2.761 0-5-2.239-5-5v-14c0-2.761 2.239-5 5-5h14c2.762 0 5 2.239 5 5v14c0 2.761-2.238 5-5 5zm-.665-6.984c1.016-.736 1.665-1.825 1.665-3.035 0-2.218-2.158-4.016-4.819-4.016-2.662 0-4.819 1.798-4.819 4.016s2.157 4.016 4.819 4.016c.55 0 1.081-.079 1.573-.22l.141-.021c.093 0 .177.028.256.074l1.055.609.093.03c.089 0 .161-.072.161-.161l-.026-.117-.217-.811-.017-.102c0-.108.053-.203.135-.262zm-8.552-11.485c-3.194 0-5.783 2.158-5.783 4.82 0 1.452.779 2.759 1.998 3.642.098.07.162.185.162.314l-.02.123-.261.972-.031.141c0 .107.086.193.193.193l.111-.036 1.266-.731c.096-.055.196-.089.307-.089l.17.025c.591.17 1.228.265 1.888.265l.318-.008c-.126-.376-.194-.772-.194-1.181 0-2.427 2.361-4.395 5.274-4.395l.314.008c-.436-2.302-2.827-4.063-5.712-4.063zm3.791 7.807c-.355 0-.642-.287-.642-.642 0-.355.287-.643.642-.643.355 0 .643.288.643.643 0 .355-.288.642-.643.642zm3.213 0c-.355 0-.642-.287-.642-.642 0-.355.287-.643.642-.643.355 0 .643.288.643.643 0 .355-.288.642-.643.642zm-8.932-3.759c-.425 0-.771-.345-.771-.771 0-.426.346-.771.771-.771.426 0 .772.345.772.771 0 .426-.346.771-.772.771zm3.856 0c-.426 0-.771-.345-.771-.771 0-.426.345-.771.771-.771.426 0 .771.345.771.771 0 .426-.345.771-.771.771z"/></svg>					
+					</a>
+					
+			  </div>
+		</div>
+		<div class="md:flex md:flex-col my-12 py-12 md:w-1/2 mx-6">
+			<div class="space-y-4 flex flex-col">
+                <div class="divide-y divide-solid  divide-slate-800  space-y-4">
+                    <div class="space-y-2">
+                        <h1 class="font-mono text-2xl text-bold">{frontmatter.title}</h1>
+                        <p class="text-sm text-slate-400"> 发布于 {frontmatter.pubDate.slice(0,10)} , 共{frontmatter.totaltextNums}字，阅读大约需要{Math.floor(frontmatter.minutesRead)}分钟。</p>
+                    </div>
+                    <div class="space-y-2 py-4 markdownstyle">
+                        <slot />
+                    </div>
+                </div>
+			</div>
+		</div>
+	</main>
+	<div class="modal" id="my-modal">
+		<div class="modal-box">
+
+		   <a href="#" ><img src="/wechat.png" alt="wechat"></a>
+		</div>
+	  </div>
+</Layout>
+<style >
+pre{
+    max-width: 48rem;
+    background-color: hsl(var(--n));
+    color: hsl(var(--nc));
+    }
+</style>
+
