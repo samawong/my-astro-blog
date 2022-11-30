@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 const { frontmatter, class:markdownstyle } = Astro.props;
+import ThemeChange from '../components/themeChange.astro';
 ---
 <Layout title={frontmatter.title}>
 	<main class="container flex md:flex-row flex-col">
@@ -24,6 +25,7 @@ const { frontmatter, class:markdownstyle } = Astro.props;
 					</a>
 					
 			  </div>
+			  <ThemeChange />
 		</div>
 		<div class="md:flex md:flex-col my-12 py-12 md:w-1/2 mx-6">
 			<div class="space-y-4 flex flex-col">
